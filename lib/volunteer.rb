@@ -60,7 +60,6 @@ class Volunteer
       if project != nil
         @project_id = project.fetch('id').to_i
         DB.exec("UPDATE volunteers SET project_id = #{@project_id} WHERE id = #{@id};")
-
       end
     end
   end

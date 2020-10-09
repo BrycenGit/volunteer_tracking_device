@@ -90,4 +90,16 @@ describe Project do
       expect(Project.all).to eq []
     end
   end
+
+  describe '#add_volunteer' do
+    it 'will change the project id to to the project with sepcified name' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save
+      volunteer1 = Volunteer.new({:name => 'Jasmine', :project_id => nil, :id => nil})
+      volunteer1.save
+      project.add_volunteer({:name => 'Jasmine'})
+      expect(project.volunteers).to eq [volunteer1]
+
+    end
+  end
 end

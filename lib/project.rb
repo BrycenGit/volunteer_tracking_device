@@ -56,4 +56,15 @@ class Project
       DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
     end
   end
+
+  def add_volunteer(attributes)
+    if attributes.has_key?(:name) && attributes.fetch(:name) != nil
+    name = attributes.fetch(:name)
+    volunteer = DB.exec("SELECT * FROM volunteers WHERE lower(name) = '#{name.downcase}';").first
+      if volunteer != nil
+        volunteer_id = volunteer.fetch('id').to_i
+        DB.exec("UPDATE volunteers SET project_id = #{@id} WHERE id = #{volunteer_id};")
+      end
+    end
+  end
 end
