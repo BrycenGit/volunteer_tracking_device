@@ -25,8 +25,13 @@ class Volunteer
   end
 
   def save
-    result = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id}) RETURNING id;")
+    if @project_id != nil
+      result = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id}) RETURNING id;")
+      @id = result.first.fetch('id').to_i
+    else
+    result = DB.exec("INSERT INTO volunteers (name) VALUES ('#{@name}') RETURNING id;")
     @id = result.first.fetch('id').to_i
+    end
   end
 
   def self.find(id)
@@ -45,6 +50,20 @@ class Volunteer
     if attributes.has_key?(:name) && attributes.fetch(:name) != nil
       @name = attributes.fetch(:name)
       DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+    end
+  end
+
+  def add_project(attributes)
+    if attributes.has_key?(:title) && attributes.fetch(:title) != nil
+    title = attributes.fetch(:title)
+    project = DB.exec("SELECT * FROM projects WHERE lower(title) = '#{title.downcase}';")
+      if project != nil
+        puts "not nil"
+        project_id = project.fetch('id')
+        DB.exec("UPDATE volunteers SET project_id = #{@project_id} WHERE id = #{@id};")
+      else
+        puts "nil"
+      end
     end
   end
 end
