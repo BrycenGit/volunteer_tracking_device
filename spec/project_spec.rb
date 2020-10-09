@@ -99,7 +99,6 @@ describe Project do
       volunteer1.save
       project.add_volunteer({:name => 'Jasmine'})
       expect(project.volunteers).to eq [volunteer1]
-
     end
   end
 end
