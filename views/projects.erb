@@ -22,8 +22,18 @@
       <% end %>
     </tr>
   <% end %>
+  </tbody>
+  </table>
 <% else %>
 <P>No current Projects</p>
 <% end %>
 
-<a href="/volunteers" class="btn btn-info">Volunteers</a>
+  <form action="/projects" method="post">
+    <div class="form-group">
+      <label for="project">Enter project name</label>
+      <input id="project" name="title" class="form-control" type="info">
+    </div>
+    <button type="submit" class="btn btn-danger">Add Project</button>
+  </form>
+
+<br><a href="/projects" class="btn btn-info">Projects</a>

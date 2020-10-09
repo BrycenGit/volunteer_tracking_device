@@ -24,4 +24,18 @@ get('/projects') do
   erb(:projects)
 end
 
+post('/volunteers') do
+  name = params[:name]
+  volunteer = Volunteer.new({:name => name, :id => nil, :project_id => nil})
+  volunteer.save
+  redirect to('/volunteers')
+end
+
+post('/projects') do
+  title = params[:title]
+  project = Project.new({:title => title, :id => nil})
+  project.save
+  redirect to('/projects')
+end
+
 

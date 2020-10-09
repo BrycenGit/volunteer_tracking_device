@@ -1,31 +1,33 @@
 <h2>Hello boss how are you doing today?</h2>
 
-<% if @volunteers.any? %>
-<h2>Volunteers</h2>
-  <table class="table table-striped"> 
-  <thead>
-    <tr>
-      <th scope="col">#</div>
-      <th scope="col">name</div>
-    </tr>
-  </thead>
-  <tbody>
-  <% @volunteers.each do |volunteer| %>
-    <tr>
-      <td><a class="btn btn_dark" href="volunteers/<%= volunteer.id %>"><%= volunteer.id %></td>
-      <td><%= volunteer.name %></td>
-    </tr>
+  <% if @volunteers.any? %>
+  <h2>Volunteers</h2>
+    <table class="table table-striped"> 
+    <thead>
+      <tr>
+        <th scope="col">#</div>
+        <th scope="col">name</div>
+      </tr>
+    </thead>
+    <tbody>
+    <% @volunteers.each do |volunteer| %>
+      <tr>
+        <td><a class="btn btn_dark" href="volunteers/<%= volunteer.id %>"><%= volunteer.id %></td>
+        <td><%= volunteer.name %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+  <% else %>
+  <P>No one has signed up to volunteer.</p>
   <% end %>
-<% else %>
-<P>No one has signed up to volunteer.</p>
-<% end %>
 
-<form action="/volunteers" method="post">
-  <div class="form-group">
-    <label for="volunteer">Enter volunteer name</label>
-    <input id="volunteer" name="name" class="form-control" type="info">
-  </div>
-  <button type="submit" class="btn btn-danger">Add Volunteer</button>
-</form><br>
+  <form action="/volunteers" method="post">
+    <div class="form-group">
+      <label for="volunteer">Enter volunteer name</label>
+      <input id="volunteer" name="name" class="form-control" type="info">
+    </div>
+    <button type="submit" class="btn btn-danger">Add Volunteer</button>
+  </form>
 
-<a href="/projects" class="btn btn-info">Projects</a>
+  <br><a href="/projects" class="btn btn-info">Projects</a><br>
