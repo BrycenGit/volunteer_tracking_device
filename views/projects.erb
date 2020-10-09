@@ -1,0 +1,29 @@
+<h2>Hello boss how are you doing today?</h2>
+
+<% if @projects.any? %>
+<h2>Projects</h2>
+  <table class="table table-striped"> 
+  <thead>
+    <tr>
+      <th scope="col">#</div>
+      <th scope="col">title</div>
+      <th scope="col">Volunteers</div>
+    </tr>
+  </thead>
+  <tbody>
+  <% @projects.each do |project| %>
+    <tr>
+      <td><a class="btn btn_dark" href="projects/<%= project.id %>"><%= project.id %></td>
+      <td><%= project.name %></td>
+      <% if project.volunteers.any? %>
+        <td><%= project.volunteers.to_s %></td>
+      <% else %>
+        <td>N/a</td>
+      <% end %>
+    </tr>
+  <% end %>
+<% else %>
+<P>No current Projects</p>
+<% end %>
+
+<a href="/volunteers" class="btn btn-info">Volunteers</a>
