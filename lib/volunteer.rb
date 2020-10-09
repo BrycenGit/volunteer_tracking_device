@@ -12,7 +12,16 @@ class Volunteer
     self.name == param.name && self.id == param.id
   end
 
-
-
+  def self.all
+    returned_volunteers = DB.exec("SELECT * FROM volunteers;")
+    volunteers = []
+    returned_volunteers.each do |volunteer|
+      name = volunteer.fetch("name")
+      id = volunteer.fetch("id").to_i
+      project_id = volunteer.fetch("project_id").to_i
+      volunteers << Volunteer.new({:name => name, :id => id, :project_id => project_id})
+    end
+    volunteers
+  end
 end
 
