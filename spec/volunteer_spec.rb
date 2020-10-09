@@ -80,7 +80,7 @@ describe Volunteer do
       project = Project.new({:title => "clean", :id => nil})
       project.save
       volunteer.add_project({:title => 'clean'})
-      expect(volunteer.project_id).to eq 1
+      expect(volunteer.project_id).to eq project.id
     end
   end
 end
