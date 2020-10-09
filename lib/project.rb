@@ -49,4 +49,10 @@ class Project
     end
     volunteers
   end
+
+  # def update(attributes)
+  #   if attributes.has_key?(:title) && attributes.fetch(:title) != nil
+  #     @title = attributes.fetch(:title)
+  #   end
+  # end
 end
