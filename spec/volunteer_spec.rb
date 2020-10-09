@@ -63,4 +63,13 @@ describe Volunteer do
       expect(Volunteer.all).to eq []
     end
   end
+
+  describe '#update' do
+    it 'allows a user to update a volunteers name' do
+      volunteer = Volunteer.new({:name => 'brycen', :id => nil, :project_id => 1})
+      volunteer.save
+      volunteer.update({:name => 'donny', :id => nil})
+      expect(volunteer.name).to eq 'donny'
+    end
+  end
 end
