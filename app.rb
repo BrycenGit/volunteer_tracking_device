@@ -38,4 +38,14 @@ post('/projects') do
   redirect to('/projects')
 end
 
+get('/volunteers/:id') do
+  @volunteer = Volunteer.find(params[:id].to_i)
+  erb(:volunteer)
+end
+
+delete('/volunteers/:id') do
+  volunteer = Volunteer.find(params[:id].to_i)
+  volunteer.delete
+  redirect to('/volunteers')
+end
 
