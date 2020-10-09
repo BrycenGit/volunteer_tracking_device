@@ -10,4 +10,6 @@ class Project
   def ==(param)
     self.title == param.title && self.id == param.id
   end
+
+  
 end
