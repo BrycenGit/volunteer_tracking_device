@@ -13,8 +13,8 @@
   <tbody>
   <% @projects.each do |project| %>
     <tr>
-      <td><a class="btn btn_dark" href="projects/<%= project.id %>"><%= project.id %></td>
-      <td><%= project.name %></td>
+      <td><a class="btn btn-dark" href="projects/<%= project.id %>"><%= project.id %></td>
+      <td><%= project.title %></td>
       <% if project.volunteers.any? %>
         <td><%= project.volunteers.to_s %></td>
       <% else %>
@@ -30,7 +30,7 @@
 
   <form action="/projects" method="post">
     <div class="form-group">
-      <label for="project">Enter project name</label>
+      <label for="project">Enter project title</label>
       <input id="project" name="title" class="form-control" type="info">
     </div>
     <button type="submit" class="btn btn-danger">Add Project</button>
