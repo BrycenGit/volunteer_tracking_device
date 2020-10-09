@@ -12,5 +12,7 @@ class Volunteer
     self.name == param.name && self.id == param.id
   end
 
+
+
 end
 
