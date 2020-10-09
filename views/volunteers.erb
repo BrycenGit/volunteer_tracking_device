@@ -1,7 +1,6 @@
-<h2>Hello boss how are you doing today?</h2>
+<h1>Volunteers</h1>
 
   <% if @volunteers.any? %>
-  <h2>Volunteers</h2>
     <table class="table table-striped"> 
     <thead>
       <tr>
@@ -25,7 +24,7 @@
   <form action="/volunteers" method="post">
     <div class="form-group">
       <label for="volunteer">Enter volunteer name</label>
-      <input id="volunteer" name="name" class="form-control" type="info">
+      <input id="volunteer" name="name" class="form-control" type="info" required>
     </div>
     <button type="submit" class="btn btn-danger">Add Volunteer</button>
   </form>

@@ -50,6 +50,8 @@ class Volunteer
     if attributes.has_key?(:name) && attributes.fetch(:name) != nil
       @name = attributes.fetch(:name)
       DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+    elsif attributes.has_key?(:project_id) && attributes.fetch(:project_id) != nil
+      @project_id = attributes.fetch(:project_id)
     end
   end
 
@@ -62,6 +64,17 @@ class Volunteer
         DB.exec("UPDATE volunteers SET project_id = #{@project_id} WHERE id = #{@id};")
       end
     end
+  end
+
+  def projects
+    projects = []
+    results = DB.exec("SELECT * FROM volunteers JOIN projects ON (volunteers.project_id = projects.id) WHERE volunteers.id = #{@id}")
+    results.each do |result|
+      title = result.fetch("title")
+      project_id = result.fetch("project_id").to_i
+      projects << Project.new({:title => title, :id => project_id})
+    end
+    projects
   end
 end
 

@@ -1,7 +1,7 @@
-<h2>Hello boss how are you doing today?</h2>
+<h1>Projects</h1>
 
 <% if @projects.any? %>
-<h2>Projects</h2>
+
   <table class="table table-striped"> 
   <thead>
     <tr>
@@ -13,10 +13,10 @@
   <tbody>
   <% @projects.each do |project| %>
     <tr>
-      <td><a class="btn btn-dark" href="projects/<%= project.id %>"><%= project.id %></td>
+      <td><a class="btn btn-dark" href="/projects/<%= project.id %>"><%= project.id %></td>
       <td><%= project.title %></td>
       <% if project.volunteers.any? %>
-        <td><%= project.volunteers.to_s %></td>
+        <td><%= project.volunteer_list %></td>
       <% else %>
         <td>N/a</td>
       <% end %>
@@ -31,9 +31,9 @@
   <form action="/projects" method="post">
     <div class="form-group">
       <label for="project">Enter project title</label>
-      <input id="project" name="title" class="form-control" type="info">
+      <input id="project" name="title" class="form-control" type="info" required>
     </div>
     <button type="submit" class="btn btn-danger">Add Project</button>
   </form>
 
-<br><a href="/projects" class="btn btn-info">Projects</a>
+<br><a href="/volunteers" class="btn btn-info">volunteers</a>

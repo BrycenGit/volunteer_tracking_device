@@ -1,7 +1,40 @@
 <h2>Volunteer name: <%= @volunteer.name %></h2>
 <h4>Volunteer ID: <%= @volunteer.id %></h4>
 
+<% if @projects.any? %>
+  <h2>projects</h2>
+    <table class="table table-striped"> 
+    <thead>
+      <tr>
+        <th scope="col">#</div>
+        <th scope="col">title</div>
+      </tr>
+    </thead>
+    <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><a class="btn btn-dark" href="/projects/<%= project.id %>"><%= project.id %></td>
+        <td><%= project.title %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+  <% else %>
+  <P>No projects assigned to this volunteers.</p>
+  <% end %>
+
 <form action="/volunteers/<%= @volunteer.id %>" method="post">
   <input name="_method" value="delete" type="hidden">
   <button type='submit' class="btn btn-danger">Remove Volunteer</button>
-</form>
+</form><br>
+
+<% if @volunteer.project_id == nil%>
+
+<form action="/volunteers/<%= @volunteer.id %>" method="post">
+  <input name="project_id" value="nil" type="hidden">
+  <button type='submit' class="btn btn-danger">Remove Project</button>
+</form><br>
+
+<% end %>
+
+<a href="/volunteers" class="btn btn-info">Back To Volunteers</a>

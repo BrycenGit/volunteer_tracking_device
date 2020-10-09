@@ -67,4 +67,13 @@ class Project
       end
     end
   end
+
+  def volunteer_list
+    list = []
+    array = self.volunteers
+    array.each do |v|
+      list << v.name
+    end
+    list.join(', ')
+  end
 end
