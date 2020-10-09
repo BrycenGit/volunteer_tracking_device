@@ -77,7 +77,7 @@ describe Volunteer do
     it 'will add a project id to a volunteer it the project exist' do
       volunteer = Volunteer.new({:name => 'brycen', :id => nil, :project_id => nil})
       volunteer.save
-      project = Project.new({:title => "clean up", :id => nil})
+      project = Project.new({:title => "clean", :id => nil})
       project.save
       volunteer.add_project({:title => 'clean'})
       expect(volunteer.project_id).to eq 1

@@ -56,13 +56,11 @@ class Volunteer
   def add_project(attributes)
     if attributes.has_key?(:title) && attributes.fetch(:title) != nil
     title = attributes.fetch(:title)
-    project = DB.exec("SELECT * FROM projects WHERE lower(title) = '#{title.downcase}';")
+    project = DB.exec("SELECT * FROM projects WHERE lower(title) = '#{title.downcase}';").first
       if project != nil
-        puts "not nil"
-        project_id = project.fetch('id')
+        @project_id = project.fetch('id').to_i
         DB.exec("UPDATE volunteers SET project_id = #{@project_id} WHERE id = #{@id};")
-      else
-        puts "nil"
+
       end
     end
   end
