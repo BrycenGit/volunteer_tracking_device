@@ -8,6 +8,8 @@ _Version 1, 10/9/2020_
 
 ## Description
 
+This project connects to a postgreSQL database. there is a production Database: volunteer_tracker, a development Database: volunteer_tracker_test, and the tables of the databases are as follows, projects and volunteers. I also created a backup in the root directory.
+
 _With this project:_
 
 - a user will be able to view, add, update and delete projects.
@@ -21,7 +23,17 @@ _With this project:_
 - Open project in vscode <code>\$ code .</code>
 - In terminal run <code>\$ bundle install</code>
 - In terminal run <code>\$ touch .env</code>
+
+### If using windows
+
 - In .env file add text PG_PASS={YOUR POSTGRESS PASSWORD WITHOUT BRACES OR QUOTES}
+
+### If using mac
+
+- remove the :password key value pair from DB = PG.connect methods on app.rb and spec_helper.rb
+
+### Then
+
 - In terminal run <code>\$ rspec</code>
 - In vscode terminal run <code>\$ ruby app.rb</code>
 
@@ -34,7 +46,6 @@ i.e PG_PASS=password
 
 - Ruby
 - Gems: rspec, rack, sinatra, sinatra-contrib, pry, rspec, capybara, pg, dotenv
-- heroku
 
 ### License
 
