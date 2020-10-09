@@ -8,9 +8,9 @@ class Volunteer
     @project_id = attributes.fetch(:project_id)
   end
 
-  # def ==(param)
-  #   self.name == param.name && self.id == param.id
-  # end
+  def ==(param)
+    self.name == param.name && self.id == param.id
+  end
 
 end
 
