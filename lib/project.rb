@@ -1,3 +1,5 @@
+
+
 class Project
 
   attr_accessor :id, :title
@@ -64,6 +66,9 @@ class Project
       if volunteer != nil
         volunteer_id = volunteer.fetch('id').to_i
         DB.exec("UPDATE volunteers SET project_id = #{@id} WHERE id = #{volunteer_id};")
+      else
+        volunteer = Volunteer.new({:name => name, :project_id => @id, :id => nil})
+        volunteer.save
       end
     end
   end

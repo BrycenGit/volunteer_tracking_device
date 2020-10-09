@@ -7,7 +7,7 @@
       <input id="project" name="title" class="form-control" type="info" required>
     </div>
     <button type="submit" class="btn btn-danger">Update</button>
-  </form>
+  </form><br>
 
 <% if @volunteers.any? %>
   <h2>Volunteers</h2>
@@ -42,7 +42,7 @@
 
 <form action="/projects/<%= @project.id %>" method="post">
   <input name="_method" value="delete" type="hidden">
-  <button type='submit' class="btn btn-danger">Remove project</button>
+  <button type='submit' class="btn btn-danger">Delete project</button>
 </form><br>
 
 <a href="/projects" class="btn btn-info">Back To Projects</a>

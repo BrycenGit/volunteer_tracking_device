@@ -72,8 +72,14 @@ delete('/projects/:id') do
 end
 
 post('/projects/:id') do
-  project = Project.find(params[:id].to_i)
-  project.add_volunteer({:name => params[:name]})
-  redirect to("/projects/#{project.id}")
+  if params[:name]
+    project = Project.find(params[:id].to_i)
+    project.add_volunteer({:name => params[:name]})
+    redirect to("/projects/#{project.id}")
+  else
+    project = Project.find(params[:id].to_i)
+    project.update({:title => params[:title]})
+    redirect to("/projects/#{project.id}")
+  end
 end
 
