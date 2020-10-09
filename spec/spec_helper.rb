@@ -5,7 +5,7 @@ require 'project'
 require 'pry'
 require('dotenv/load')
 
-DB = PG.connect({:dbname => "", :password => ENV['PG_PASS'] })
+DB = PG.connect({:dbname => "volunteer_tracker", :password => ENV['PG_PASS'] })
 
 RSpec.configure do |config|
   config.after(:each) do
