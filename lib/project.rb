@@ -34,5 +34,7 @@ class Project
   Project.new({:title => title, :id => id})
   end
 
-  
+  def delete
+    DB.exec("DELETE FROM projects WHERE id = #{@id};")
+  end
 end
