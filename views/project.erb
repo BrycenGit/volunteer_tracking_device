@@ -1,5 +1,13 @@
-<h2>project title: <%= @project.title %></h2>
-<h4>project ID: <%= @project.id %></h4>
+<h2>Project title: <%= @project.title %></h2>
+<h4>Project ID: <%= @project.id %></h4>
+
+  <form action="/projects/<%= @project.id %>" method="post">
+    <div class="form-group">
+      <label for="project">Update Title</label>
+      <input id="project" name="title" class="form-control" type="info" required>
+    </div>
+    <button type="submit" class="btn btn-danger">Update</button>
+  </form>
 
 <% if @volunteers.any? %>
   <h2>Volunteers</h2>

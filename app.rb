@@ -50,7 +50,14 @@ delete('/volunteers/:id') do
   redirect to('/volunteers')
 end
 
-post('')
+post('/volunteers/:id') do
+  if params[:empty]
+    empty = params[:empty]
+    volunteer = Volunteer.find(params[:id].to_i)
+    volunteer.update({:empty => empty})
+    redirect to("/volunteers/#{volunteer.id}")
+  end
+end
 
 get('/projects/:id') do
   @project = Project.find(params[:id].to_i)

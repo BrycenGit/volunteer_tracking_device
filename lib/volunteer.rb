@@ -50,8 +50,9 @@ class Volunteer
     if attributes.has_key?(:name) && attributes.fetch(:name) != nil
       @name = attributes.fetch(:name)
       DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
-    elsif attributes.has_key?(:project_id) && attributes.fetch(:project_id) != nil
-      @project_id = attributes.fetch(:project_id)
+    elsif attributes.has_key?(:empty)
+      @project_id = nil
+      DB.exec("UPDATE volunteers SET project_id = NULL WHERE id = #{@id};")
     end
   end
 

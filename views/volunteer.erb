@@ -28,13 +28,14 @@
   <button type='submit' class="btn btn-danger">Remove Volunteer</button>
 </form><br>
 
-<% if @volunteer.project_id == nil%>
+<% if @projects.any?%>
 
-<form action="/volunteers/<%= @volunteer.id %>" method="post">
-  <input name="project_id" value="nil" type="hidden">
-  <button type='submit' class="btn btn-danger">Remove Project</button>
-</form><br>
+  <form action="/volunteers/<%= @volunteer.id %>" method="post">
+    <input name="empty" value="empty" type="hidden">
+    <button type='submit' class="btn btn-dark">Remove Volunteer From Project</button>
+  </form><br>
 
 <% end %>
 
-<a href="/volunteers" class="btn btn-info">Back To Volunteers</a>
+<a href="/volunteers" class="btn btn-info">Back To Volunteers</a><br>
+<br><a href="/projects" class="btn btn-info">Back To projects</a>
