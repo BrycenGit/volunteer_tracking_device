@@ -30,7 +30,7 @@ class Volunteer
   end
 
   def self.find(id)
-    result = DB.exec("SELECT FROM volunteers WHERE id = #{id}").first
+    result = DB.exec("SELECT * FROM volunteers WHERE id = #{id}").first
     id = result.fetch("id").to_i
     project_id = result.fetch("project_id").to_i
     name = result.fetch("name")
