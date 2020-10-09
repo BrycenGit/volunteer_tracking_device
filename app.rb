@@ -11,7 +11,7 @@ also_reload('lib/**/*.rb')
 DB = PG.connect({:dbname => "volunteer_tracker", :password => ENV['PG_PASS']})
 
 get('/') do
-  redirect to('/volunteers')
+  redirect to('/projects')
 end
 
 get('/volunteers') do
