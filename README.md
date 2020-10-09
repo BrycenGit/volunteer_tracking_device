@@ -1,40 +1,40 @@
 # _Volunteer_tracker_
 
-_Version 1, {DATE}_
+_Version 1, 10/9/2020_
 
-#### _{WHAT WILL IT DO}_
+#### _An application that tracks projects and the volunteers working on them_
 
 ### By: _**Brycen Bartolome**_
 
 ## Description
 
-_{DESCRIPTION HERE}_
+_With this project:_
 
-## Specifications
-
-| Spec | Behavior | Input | Output |
-| ---- | -------- | ----- | ------ |
-| 1    |          |       |        |
-
+- a user will be able to view, add, update and delete projects.
+- a user will also be able to view and add volunteers.
+- lastly they will be able to add volunteers to a project.
 
 ## Setup & Installation
 
-- Clone project to desktop <code>$ git clone {REPO LINK}</code>
-- Move to project directory <code>$ cd volunteer_tracker</code>
-- Open project in vscode <code>$ code .</code>
-- In terminal run <code>$ bundle install</code>
-- In terminal run <code>$ rspec</code>
-- In vscode terminal run <code>$ ruby app.rb</code>
+- Clone project to desktop <code>\$ git clone https://github.com/BrycenGit/volunteer_tracking_device.git</code>
+- Move to project directory <code>\$ cd volunteer_tracker</code>
+- Open project in vscode <code>\$ code .</code>
+- In terminal run <code>\$ bundle install</code>
+- In terminal run <code>\$ touch .env</code>
+- In .env file add text PG_PASS={YOUR POSTGRESS PASSWORD WITHOUT BRACES OR QUOTES}
+- In terminal run <code>\$ rspec</code>
+- In vscode terminal run <code>\$ ruby app.rb</code>
 
 ## Known Bugs
 
-_There are no known bugs_
+Make sure you add .env file with text PG_PASS={YOUR POSTGRESS PASSWORD WITHOUT BRACES OR QUOTES}
+i.e PG_PASS=password
 
 ## Technologies Used
 
 - Ruby
-- Gems: rspec, rack
-- {MORE TECH}
+- Gems: rspec, rack, sinatra, sinatra-contrib, pry, rspec, capybara, pg, dotenv
+- heroku
 
 ### License
 
