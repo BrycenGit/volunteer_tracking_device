@@ -1,6 +1,7 @@
 require 'volunteer'
 require 'project'
 require 'rspec'
+require 'capybara'
 require 'pry'
 require 'pg'
 
@@ -12,6 +13,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DB.exec("DELETE FROM volunteers *;")
     DB.exec("DELETE FROM projects *;")
-    # DB.exec("DELETE FROM volunteers_projects *;")
+
   end
 end
