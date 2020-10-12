@@ -1,11 +1,12 @@
+require('dotenv/load')
+
+require 'rspec'
+require 'pg'
 require 'volunteer'
 require 'project'
-require 'rspec'
-require 'capybara'
 require 'pry'
-require 'pg'
 
-require('dotenv/load')
+
 
 DB = PG.connect({:dbname => "volunteer_tracker_test", :password => ENV['PG_PASS'] })
 
