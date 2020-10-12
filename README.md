@@ -22,6 +22,9 @@ _With this project:_
 - Move to project directory <code>\$ cd volunteer_tracker</code>
 - Open project in vscode <code>\$ code .</code>
 - In terminal run <code>\$ bundle install</code>
+- In terminal run <code>\$ createdb volunteer_tracker</code>
+- In terminal run <code>\$ psql volunteer_tracker < database_backup.sql</code>
+- In terminal run <code>\$ createdb -T volunteer_tracker volunteer_tracker_test</code>
 - In terminal run <code>\$ touch .env</code>
 
 ### If using windows
